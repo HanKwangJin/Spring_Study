@@ -22,7 +22,7 @@ public class Program {
 				new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		Exam exam=context.getBean(Exam.class);
 		System.out.println(exam.toString());
-		
+		System.out.println("test");
 		//비선호하는 방법 re>꺼내올때 타입을 몰라서 형변환을 해야 하기 때문에
 //		ExamConsole console=(ExamConsole) context.getBean("console");
 		ExamConsole console=context.getBean(ExamConsole.class);
