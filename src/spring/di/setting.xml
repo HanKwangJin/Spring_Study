@@ -3,12 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+		
+		<context:annotation-config/>
+
 
 	<!-- Exam exam= new NewlecExam() -->
-   	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10"
-		p:eng="10" p:math="10" p:com="10" />
+   	<bean id="exam1" class="spring.di.entity.NewlecExam" p:math="10" p:com="10" />
+   	<bean id="exam2" class="spring.di.entity.NewlecExam" p:math="20" p:com="20" />
 
 
 	<!-- <constructor-arg name="kor" value="10"/> <constructor-arg name="eng" 
@@ -23,18 +28,18 @@
 		<property name="com" value="10"/> <property name="math" value="10"/> -->
 
 	<!-- ExamConsole console= new GridExamConsole(exam) -->
-	<bean id="console" class="spring.di.ui.InlineExamConsole">
+	<bean id="console" class="spring.di.ui.GridExamConsole">
 		<!-- console.setExam(exam) -->
-		<property name="exam" ref="exam"></property>
+		<!-- <property name="exam" ref="exam"></property> -->
 	</bean>
 	
-	<!-- <util:list id="exams" list-class="sjava.util.ArrayList">
+	<!-- <util:list id="exams" list-class="java.util.ArrayList">
 		<bean class="spring.di.entity.NewlecExam" p:kor="1"
-			p:eng="1" p:math="1" p:com="1" />
-		<ref bean="exam" />
+			p:eng="1"/>
+		<ref bean="exam1" />
 	</util:list> -->
 
-	<bean id="exams" class="java.util.ArrayList">
+	<!-- <bean id="exams" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
 				<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="1"
@@ -42,7 +47,7 @@
 				<ref bean="exam" />
 			</list>
 		</constructor-arg>
-	</bean>
+	</bean> -->
 
 
 
