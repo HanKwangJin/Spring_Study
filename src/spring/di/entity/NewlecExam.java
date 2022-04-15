@@ -1,8 +1,20 @@
 package spring.di.entity;
 
-public class NewlecExam implements Exam {
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
+//다 똑같이 동작됨 차이점 : 각자 특화된 것이 있음.
+//@Component
+//@Service
+//@Controller
+public class NewlecExam implements Exam {
+	
+	@Value("20")
 	private int kor;
+	@Value("30")
 	private int eng;
 	private int math;
 	private int com;
