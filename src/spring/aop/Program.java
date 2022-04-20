@@ -21,9 +21,9 @@ public class Program {
 		ApplicationContext context =
 //				new AnnotationConfigApplicationContext(NewlecDiConfig.class);
 		new ClassPathXmlApplicationContext("spring/aop/setting.xml");
-		Exam proxy = (Exam) context.getBean("proxy");
-		System.out.printf("total= %d\n",proxy.total());
-		System.out.printf("avg= %f\n",proxy.avg());
+		Exam exam = (Exam) context.getBean("exam");
+		System.out.printf("total= %d\n",exam.total());
+		System.out.printf("avg= %f\n",exam.avg());
 //		Exam exam= new NewlecExam(1,1,1,1);
 		
 //		Exam proxy=(Exam) Proxy.newProxyInstance(NewlecExam.class.getClassLoader(), 
